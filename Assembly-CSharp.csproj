@@ -48,8 +48,11 @@
     <Analyzer Include="D:\Program file\6000.1.11f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Picable\Pickable.cs" />
     <Compile Include="Assets\Player\Player.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Picable\PickableType.cs" />
+    <Compile Include="Assets\Picable\PickableManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
