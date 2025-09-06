@@ -49,10 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Picable\Pickable.cs" />
+    <Compile Include="Assets\Enemy\PatrolState.cs" />
     <Compile Include="Assets\Player\Player.cs" />
+    <Compile Include="Assets\Enemy\BaseState.cs" />
+    <Compile Include="Assets\Enemy\RetreatState.cs" />
+    <Compile Include="Assets\Enemy\Enemy.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Picable\PickableType.cs" />
     <Compile Include="Assets\Picable\PickableManager.cs" />
+    <Compile Include="Assets\Enemy\ChaseState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

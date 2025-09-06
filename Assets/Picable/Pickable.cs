@@ -11,7 +11,7 @@ public class Pickable : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Picked up: " + PickableType);
+          
              OnPicked(this); // Notify the manager that this item has been picked
             Destroy(gameObject); // Remove the item from the scene
            
