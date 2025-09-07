@@ -3851,6 +3851,7 @@ MonoBehaviour:
   ChaseDistance: 10
   Player: {fileID: 493457860}
   NavMeshAgent: {fileID: 0}
+  Animator: {fileID: 0}
 --- !u!195 &1029112519
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3893,6 +3894,28 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!95 &1029112521
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029112513}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8661ffbbf6e88354597cfc3f66720b0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!43 &1059044452
 Mesh:
   m_ObjectHideFlags: 0
@@ -7611,6 +7634,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8335967236923516233, guid: f3d734235e11f9a4198aa8b72cfd99c7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1029112519}
+    - targetCorrespondingSourceObject: {fileID: 8335967236923516233, guid: f3d734235e11f9a4198aa8b72cfd99c7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1029112521}
   m_SourcePrefab: {fileID: 100100000, guid: f3d734235e11f9a4198aa8b72cfd99c7, type: 3}
 --- !u!1 &1993997717
 GameObject:

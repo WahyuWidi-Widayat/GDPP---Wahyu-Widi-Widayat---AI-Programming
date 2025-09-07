@@ -21,17 +21,22 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] 
     public NavMeshAgent NavMeshAgent;
+    public Animator Animator;
+    [HideInInspector]
 
 
 
- 
+
+
     private void Awake()
     {
+        Animator = GetComponent<Animator>();
         // Assign komponen NavMeshAgent
         NavMeshAgent = GetComponent<NavMeshAgent>();
 
         // Mulai dengan PatrolState
         SwitchState(PatrolState);
+        
     }
 
     private void Update()

@@ -6,6 +6,7 @@ public class ChaseState : BaseState
     {
         Debug.Log("Entering Chase State");
         // contoh: mulai kejar player
+        enemy.Animator.SetTrigger("ChaseState");
     }
 
     public override void UpdateState(Enemy enemy)
