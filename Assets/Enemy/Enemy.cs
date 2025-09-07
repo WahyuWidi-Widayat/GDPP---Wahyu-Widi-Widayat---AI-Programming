@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEngine.AI;   
+using UnityEngine.AI;
+using TMPro;
+
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     public List<Transform> Waypoints = new List<Transform>();
     [SerializeField]
     public float ChaseDistance;
     [SerializeField]
-    public  Player Player;
+    public Player Player;
 
     // State saat ini
     private BaseState _currentState;
@@ -19,7 +21,7 @@ public class Enemy : MonoBehaviour
     public ChaseState ChaseState = new ChaseState();
     public RetreatState RetreatState = new RetreatState();
 
-    [HideInInspector] 
+    [HideInInspector]
     public NavMeshAgent NavMeshAgent;
     public Animator Animator;
     [HideInInspector]
@@ -36,39 +38,39 @@ public class Enemy : MonoBehaviour
 
         // Mulai dengan PatrolState
         SwitchState(PatrolState);
-        
+
     }
 
     private void Update()
     {
         _currentState?.UpdateState(this);
     }
-private void StartRetreating()
-{
-    SwitchState(RetreatState);
-}
-
-private void StopRetreating()
-{
-    SwitchState(PatrolState);
-}
-private void OnEnable()
-{
-    if (Player != null)
+    private void StartRetreating()
     {
-        Player.OnPowerUpStart += StartRetreating;
-        Player.OnPowerUpStop += StopRetreating;
+        SwitchState(RetreatState);
     }
-}
 
-private void OnDisable()
-{
-    if (Player != null)
+    private void StopRetreating()
     {
-        Player.OnPowerUpStart -= StartRetreating;
-        Player.OnPowerUpStop -= StopRetreating;
+        SwitchState(PatrolState);
     }
-}
+    private void OnEnable()
+    {
+        if (Player != null)
+        {
+            Player.OnPowerUpStart += StartRetreating;
+            Player.OnPowerUpStop += StopRetreating;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (Player != null)
+        {
+            Player.OnPowerUpStart -= StartRetreating;
+            Player.OnPowerUpStop -= StopRetreating;
+        }
+    }
 
 
     /// <summary>
@@ -82,5 +84,22 @@ private void OnDisable()
         // Masuk ke state baru
         _currentState = newState;
         _currentState.EnterState(this);
+    }
+
+    public void Dead()
+    {
+        Destroy(gameObject);
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if(_currentState != RetreatState)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<Player>().Dead();
+            }
+        }
     }
 }
