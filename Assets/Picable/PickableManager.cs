@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 public class PickableManager : MonoBehaviour
 {
     [SerializeField]
@@ -22,6 +23,7 @@ public class PickableManager : MonoBehaviour
         {
             _pickableList.Add(pickableObjects[i]);
             pickableObjects[i].OnPicked += OnPickablePicked;
+
         }
         _scoreManager.SetMaxScore(_pickableList.Count);
         
@@ -30,9 +32,9 @@ public class PickableManager : MonoBehaviour
     private void OnPickablePicked(Pickable pickable)
     {
         _pickableList.Remove(pickable);
-        if (_scoreManager != null){ _scoreManager.AddScore(1);}
-       
-      if (pickable.PickableType == PickableType.PowerUp)
+        if (_scoreManager != null) { _scoreManager.AddScore(1); }
+
+        if (pickable.PickableType == PickableType.PowerUp)
         {
             _player?.PickPowerUp();
         }
@@ -40,8 +42,13 @@ public class PickableManager : MonoBehaviour
         if (_pickableList.Count <= 0)
         {
             Debug.Log("Win");
+            SceneManager.LoadScene("WinScene");
+             Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
             // You can trigger any event here, like ending the level or spawning new items
         }
+       
+        
     }
     
 }

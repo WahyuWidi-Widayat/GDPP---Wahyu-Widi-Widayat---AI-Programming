@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
@@ -101,14 +102,17 @@ public class Player : MonoBehaviour
 {
     _health -= 1;
 
-    if (_health > 0)
-    {
-        transform.position = _respawnPoint.position;
-    }
-    else
-    {
-        _health = 0;
-        Debug.Log("Lose");
+        if (_health > 0)
+        {
+            transform.position = _respawnPoint.position;
+        }
+        else
+        {
+            _health = 0;
+            Debug.Log("Lose");
+            SceneManager.LoadScene("LoseScene");
+            Cursor.visible = true;
+           Cursor.lockState = CursorLockMode.None;
     }
 
     UpdateUI();
